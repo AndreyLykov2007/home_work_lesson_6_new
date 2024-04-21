@@ -8,6 +8,7 @@ public class TestBase {
     static void beforeAll() {
         Configuration.browserSize = "1920x1180";
         Configuration.holdBrowserOpen = true;
+        Configuration.pageLoadStrategy = "eager";
         Configuration.baseUrl = "https://demoqa.com";
     }
 }

@@ -1,10 +1,10 @@
 package tests;
 
 import org.junit.jupiter.api.Test;
-import pages.components.CheckResultComponent;
 import pages.RegistrationPage;
+import pages.components.CheckResultComponent;
 
-public class DemoqaFormSuccessfulRegistrationFilledAllFields extends TestBase {
+public class DemoqaFormNegativeUnfilledFamilyField extends TestBase {
     RegistrationPage registrationPage = new RegistrationPage();
     CheckResultComponent checkResultComponent = new CheckResultComponent();
 
@@ -12,7 +12,6 @@ public class DemoqaFormSuccessfulRegistrationFilledAllFields extends TestBase {
     void successfulRegistrationFilledAllFieldsTest() {
         registrationPage.openPage()
                 .setFirstName("Alex")
-                .setLastName("Ivanov")
                 .setUserEmail("alexivanov20251718@gmail.com")
                 .setGender("Male")
                 .setMobilePhone("9999999901")
@@ -25,15 +24,6 @@ public class DemoqaFormSuccessfulRegistrationFilledAllFields extends TestBase {
                 .setCity("Agra")
                 .pushSubmit();
 
-        checkResultComponent.checkResult("Student Name", "Alex Ivanov")
-                .checkResult("Student Email", "alexivanov20251718@gmail.com")
-                .checkResult("Gender", "Male")
-                .checkResult("Mobile", "9999999901")
-                .checkResult("Date of Birth", "28 August,1980")
-                .checkResult("Subjects", "English")
-                .checkResult("Hobbies", "Reading")
-                .checkResult("Picture", "example.jpg")
-                .checkResult("Address", "Some address 11")
-                .checkResult("State and City", "Uttar Pradesh Agra");
+        checkResultComponent.checkResultWindowNotAppeared();
     }
 }
