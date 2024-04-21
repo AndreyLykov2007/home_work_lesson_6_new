@@ -1,12 +1,12 @@
 package tests;
 
 import org.junit.jupiter.api.Test;
-import pages.components.CheckResultComponent;
+import pages.components.CheckResultInTableComponent;
 import pages.RegistrationPage;
 
 public class DemoqaFormSuccessfulRegistrationFilledAllFields extends TestBase {
     RegistrationPage registrationPage = new RegistrationPage();
-    CheckResultComponent checkResultComponent = new CheckResultComponent();
+    CheckResultInTableComponent checkResultComponent = new CheckResultInTableComponent();
 
     @Test
     void successfulRegistrationFilledAllFieldsTest() {
