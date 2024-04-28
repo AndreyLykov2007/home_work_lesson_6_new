@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import pages.components.CheckResultInTableComponent;
 import pages.RegistrationPage;
 
-public class DemoqaFormSuccessfulRegistrationFilledAllFields extends TestBase {
+public class DemoqaPracticeFormTests extends TestBase {
     RegistrationPage registrationPage = new RegistrationPage();
     CheckResultInTableComponent checkResultComponent = new CheckResultInTableComponent();
 
