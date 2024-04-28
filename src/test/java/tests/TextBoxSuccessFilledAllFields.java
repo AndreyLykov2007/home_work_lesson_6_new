@@ -11,11 +11,11 @@ public class TextBoxSuccessFilledAllFields extends TestBase {
     @Test
     void textBoxSuccessTest() {
         textBoxPage.openPage()
-                .setFulllName("Alex Ivanov")
+                .setFullName("Alex Ivanov")
                 .setEmail("ivan@poker.com")
                 .setCurrentAddress("Some street 1")
                 .setPermanentAddress("Another street 2")
-                .pushSubmit();
+                .clickSubmit();
 
         checkResultOnSamePageComponent.checkResult("Name:", "Alex Ivanov")
                 .checkResult("Email:", "ivan@poker.com")

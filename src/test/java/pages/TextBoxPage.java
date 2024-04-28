@@ -18,7 +18,7 @@ public class TextBoxPage {
         return this;
     }
 
-    public TextBoxPage setFulllName(String value) {
+    public TextBoxPage setFullName(String value) {
         inputFullName.setValue(value);
         return this;
     }
@@ -38,7 +38,7 @@ public class TextBoxPage {
         return this;
     }
 
-    public TextBoxPage pushSubmit() {
+    public TextBoxPage clickSubmit() {
         submitButton.click();
         return this;
     }

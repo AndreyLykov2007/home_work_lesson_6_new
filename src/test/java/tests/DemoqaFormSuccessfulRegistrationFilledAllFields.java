@@ -11,6 +11,7 @@ public class DemoqaFormSuccessfulRegistrationFilledAllFields extends TestBase {
     @Test
     void successfulRegistrationFilledAllFieldsTest() {
         registrationPage.openPage()
+                .removeBanners()
                 .setFirstName("Alex")
                 .setLastName("Ivanov")
                 .setUserEmail("alexivanov20251718@gmail.com")
@@ -18,12 +19,12 @@ public class DemoqaFormSuccessfulRegistrationFilledAllFields extends TestBase {
                 .setMobilePhone("9999999901")
                 .setDateOfBirth("28", "August", "1980")
                 .setSubjects("English")
-                .setHobbies("Reading")
+                .setHobbie("Reading")
                 .uploadPicture("example.jpg")
                 .setAddress("Some address 11")
                 .setState("Uttar Pradesh")
                 .setCity("Agra")
-                .pushSubmit();
+                .clickSubmit();
 
         checkResultComponent.checkResult("Student Name", "Alex Ivanov")
                 .checkResult("Student Email", "alexivanov20251718@gmail.com")
@@ -35,5 +36,42 @@ public class DemoqaFormSuccessfulRegistrationFilledAllFields extends TestBase {
                 .checkResult("Picture", "example.jpg")
                 .checkResult("Address", "Some address 11")
                 .checkResult("State and City", "Uttar Pradesh Agra");
+    }
+
+    @Test
+    void successfulRegistrationOnlyRequiredFieldsTest() {
+        registrationPage.openPage()
+                .removeBanners()
+                .setFirstName("Alex")
+                .setLastName("Ivanov")
+                .setGender("Male")
+                .setMobilePhone("9999999901")
+                .setDateOfBirth("28", "August", "1980")
+                .clickSubmit();
+
+        checkResultComponent.checkResult("Student Name", "Alex Ivanov")
+                .checkResult("Gender", "Male")
+                .checkResult("Mobile", "9999999901")
+                .checkResult("Date of Birth", "28 August,1980");
+    }
+
+    @Test
+    void notFilledLastNameFieldNegativeTest() {
+        registrationPage.openPage()
+                .removeBanners()
+                .setFirstName("Alex")
+                .setUserEmail("alexivanov20251718@gmail.com")
+                .setGender("Male")
+                .setMobilePhone("9999999901")
+                .setDateOfBirth("28", "August", "1980")
+                .setSubjects("English")
+                .setHobbie("Reading")
+                .uploadPicture("example.jpg")
+                .setAddress("Some address 11")
+                .setState("Uttar Pradesh")
+                .setCity("Agra")
+                .clickSubmit();
+
+        checkResultComponent.checkResultWindowNotAppeared();
     }
 }

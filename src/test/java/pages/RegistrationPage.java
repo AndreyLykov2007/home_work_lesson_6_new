@@ -13,16 +13,20 @@ public class RegistrationPage {
     SelenideElement setGender = $("#genterWrapper");
     SelenideElement setMobilePhone = $("#userNumber");
     SelenideElement inputSubjects = $("#subjectsInput");
-    SelenideElement calendarInput = $(".react-datepicker-wrapper");
     SelenideElement inputHobbies = $("#hobbiesWrapper");
     SelenideElement uploadPictureForm = $("#uploadPicture");
     SelenideElement inputAddress = $("#currentAddress");
-    SelenideElement inputState = $("#react-select-3-input");
-    SelenideElement inputCity = $("#react-select-4-input");
+    SelenideElement inputState = $("#state");
+    SelenideElement inputCity = $("#city");
     SelenideElement submitButton = $("#submit");
 
     public RegistrationPage openPage() {
         open("/automation-practice-form");
+
+        return this;
+    }
+
+    public RegistrationPage removeBanners() {
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
 
@@ -55,7 +59,6 @@ public class RegistrationPage {
     }
 
     public RegistrationPage setDateOfBirth(String day, String month, String year) {
-        calendarInput.click();
         new CalendarComponent().setDate(day, month, year);
         return this;
     }
@@ -65,7 +68,7 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setHobbies(String value) {
+    public RegistrationPage setHobbie(String value) {
         inputHobbies.$(byText(value)).click();
         return this;
     }
@@ -81,16 +84,18 @@ public class RegistrationPage {
     }
 
     public RegistrationPage setState(String value) {
-        inputState.setValue(value).pressEnter();
+        inputState.click();
+        $(byText(value)).click();
         return this;
     }
 
     public RegistrationPage setCity(String value) {
-        inputCity.setValue(value).pressEnter();
+        inputCity.click();
+        $(byText(value)).click();
         return this;
     }
 
-    public RegistrationPage pushSubmit() {
+    public RegistrationPage clickSubmit() {
         submitButton.click();
         return this;
     }
